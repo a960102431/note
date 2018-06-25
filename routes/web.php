@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +14,13 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group([
+], function (Router $router) {
+
+    $router->get('/', 'HomeController@index');
+    $router->get('/login', 'LoginController@login');
+    $router->post('/login', 'LoginController@postLogin');
+
 });
